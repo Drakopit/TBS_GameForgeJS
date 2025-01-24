@@ -3,6 +3,7 @@ import { Base } from "../GameForgeJS/Root/Base.js";
 export class MapBattle extends Base {
     constructor(screen, pos_x = undefined, pos_y = undefined, width = undefined, height = undefined, cell_size_x = undefined, cell_size_y = undefined, map_def = undefined) {
         super();
+        this.screen = screen;
         // Position definition
         if (!pos_x && !pos_y) {
             this.posX = screen.Position.x; this.posY = screen.Position.y;
