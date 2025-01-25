@@ -9,7 +9,7 @@ export class CursorBattle extends Base {
             this.sprite = spr;
         }
 
-        if (!pos_x && pos_y) {
+        if (!pos_x && !pos_y) {
             this.x = 0;
 			this.y = 0;
         } else {

@@ -9,11 +9,11 @@ export const MACHINE_TURN = Object.freeze({
 });
 
 export const MACHINE_BATTLE = Object.freeze({
-    IDLE: 0,    // choise time
-    MOVE: 1,    // Move action
-    ATTACK: 2,  // Attack action
-    DEFEND: 3,  // Defend action
-    ITEM: 4,    // Item action
-    RUN: 5,     // Run action
-    PASS: 6,    // Pass action
+    IDLE: 1,    // choise time
+    MOVE: 2,    // Move action
+    ATTACK: 3,  // Attack action
+    DEFEND: 4,  // Defend action
+    ITEM: 5,    // Item action
+    RUN: 6,     // Run action
+    PASS: 7,    // Pass action
 });

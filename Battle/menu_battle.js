@@ -13,14 +13,15 @@ export class MenuBattle extends Base {
         this.options = options;
         this.menu_options_cursor = 0;
         this.draw = draw;
-        this.choosed_option;
+        this.choosed_option = null;
     }
 
     OnStart() {
         // Cursor sound
         this.cursor_sound = new Song();
         this.cursor_sound.initializeAudioContext();
-        // Choose sound
+        
+		// Choose sound
         this.choose_sound = new Song();
         this.choose_sound.initializeAudioContext();
     }
@@ -44,28 +45,28 @@ export class MenuBattle extends Base {
             this.choose_sound.Play("../Assets/SE/decision2_rpgmakervxace_se.ogg", false);
             if (this.menu_options_cursor >= 0 && this.menu_options_cursor <= this.options.length - 1) {
                 this.choosed_option = this.menu_options_cursor;
-                console.log(this.choosed_option);
             }
         }
     }
 
     OnDrawn() {
+		// Show Message Box
+		this.ShowMsgBox();
+
+        // Draw the options
+        for (let i = 0; i <= this.options.length - 1; i++) {
+            i == this.menu_options_cursor ? this.draw.Color = "gray" : this.draw.Color = "white";
+            this.draw.DrawText(this.options[i], this.posX + 8, this.posY + 16 + i * 16);
+        };
+        super.OnDrawn();
+    }
+
+    ShowMsgBox() {
         // The menu box
         this.draw.Color = "white";
         this.draw.DrawRect(this.posX - 1, this.posY - 1, this.width, this.height);
         this.draw.Color = "rgb(155, 155, 155, 0.5)";
         this.draw.DrawRect(this.posX, this.posY, this.width - 2, this.height - 2);
         this.draw.Color = "white";
-
-        // Draw the options
-        for (let i = 0; i <= this.options.length - 1; i++) {
-            if (i == this.menu_options_cursor) {
-                this.draw.Color = "gray";
-            } else {
-                this.draw.Color = "white";
-            }
-            this.draw.DrawText(this.options[i], this.posX + 8, this.posY + 16 + i * 16);
-        }
-        super.OnDrawn();
     }
 }
