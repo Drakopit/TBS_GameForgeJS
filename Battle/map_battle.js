@@ -22,15 +22,11 @@ export class MapBattle extends Base {
     }
 
     OnStart() {
-        console.log("Map:", this.map);
-
         // Reinitialize map with 0 if needed (optional)
-        for (let y = 0; y < this.height; y++) {
-            for (let x = 0; x < this.width; x++) {
-                this.map[y][x] = 0;
-            }
-        }
-
-        console.log("TBS Initialized:", this.map);
+        // for (let y = 0; y < this.height; y++) {
+        //     for (let x = 0; x < this.width; x++) {
+        //         this.map[y][x] = 0;
+        //     }
+        // }
     }
 }

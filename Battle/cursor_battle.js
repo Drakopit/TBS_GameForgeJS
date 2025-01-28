@@ -1,7 +1,10 @@
+import { Vector2D } from "../GameForgeJS/Math/Vector2D.js";
 import { Base } from "../GameForgeJS/Root/Base.js";
 
+const DEFAULT_SIZE = new Vector2D(32, 32);
+
 export class CursorBattle extends Base {
-    constructor(spr, pos_x, pos_y) {
+    constructor(spr, size, pos) {
         super();
         if (!spr) {
             this.sprite = "../Assets/Battle Resources/battle_cursor.png";
@@ -9,12 +12,18 @@ export class CursorBattle extends Base {
             this.sprite = spr;
         }
 
-        if (!pos_x && !pos_y) {
+        if (!size) {
+            this.size = DEFAULT_SIZE;
+        } else {
+            this.size = size;
+        }
+
+        if (!pos) {
             this.x = 0;
 			this.y = 0;
         } else {
-            this.x = pos_x;
-            this.y = pos_y;
+            this.x = pos.x;
+            this.y = pos.y;
         }
     }
 
@@ -32,9 +41,6 @@ export class CursorBattle extends Base {
     }
 
     GetPosition() {
-        return {
-            x: this.x,
-            y: this.y
-        }
+        return new Vector2D(this.x, this.y);
     }
 }

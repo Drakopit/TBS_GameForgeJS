@@ -32,11 +32,9 @@ export class FieldAon extends Level {
             let player = this.GetEntityByName("Kocytos");
             let save = player.levelData;
             if (save) {
-                console.log("Saving player state:", save);
                 try {
                     let store = new Store();  // Creating store once to isolate potential issue
                     store.SaveState(save, "player");
-                    console.log("Player state saved");
                     this.LEVEL_HANDLER.Next = true;
                 } catch (error) {
                     console.error("Error during SaveState:", error);

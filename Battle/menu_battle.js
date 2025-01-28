@@ -47,6 +47,12 @@ export class MenuBattle extends Base {
                 this.choosed_option = this.menu_options_cursor;
             }
         }
+        
+        // Quit menu
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            this.choose_sound.Play("../Assets/SE/decision2_rpgmakervxace_se.ogg", false);
+            this.choosed_option = 0;
+        }
     }
 
     OnDrawn() {
